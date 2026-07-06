@@ -1,7 +1,7 @@
 #LANGKAH UTAMA: Membuat atau memperbarui tabel fisik bernama 'analisa_hasil_aggregasi'
 CREATE OR REPLACE TABLE `kimia_farma.analisa_hasil_aggregasi` AS
 
-#Membuat Common Table Expression (CTE) bernama 'basis_data'
+#Membuat Common Table Expression (CTE) bernama 'kf_joined_data'
 #Menggabungkan (JOIN) keempat tabel sumber dan menentukan persentase laba kotor.
 
 WITH kf_joined_data AS (
@@ -54,7 +54,7 @@ WITH kf_joined_data AS (
 )
 
 #Melakukan Kalkulasi Lanjutan (Nett Sales & Nett Profit)
-#Menggunakan data yang sudah bersih dan terstruktur dari CTE 'basis_data'
+#Menggunakan data yang sudah bersih dan terstruktur dari CTE 'kf_joined_data'
 SELECT
   transaction_id,
   date,
